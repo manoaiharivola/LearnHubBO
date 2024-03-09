@@ -250,3 +250,4 @@ C:\Users\My PC\source\repos\LearnHub\LearnHubBO\obj\Debug\net8.0\refint\LearnHub
 C:\Users\My PC\source\repos\LearnHub\LearnHubBO\obj\Debug\net8.0\LearnHubBO.pdb
 C:\Users\My PC\source\repos\LearnHub\LearnHubBO\obj\Debug\net8.0\LearnHubBO.genruntimeconfig.cache
 C:\Users\My PC\source\repos\LearnHub\LearnHubBO\obj\Debug\net8.0\ref\LearnHubBO.dll
+C:\Users\My PC\source\repos\LearnHub\LearnHubBO\obj\Debug\net8.0\LearnHubBO.sourcelink.json
