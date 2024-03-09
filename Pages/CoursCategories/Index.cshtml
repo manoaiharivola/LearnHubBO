@@ -1,0 +1,36 @@
+@page
+@model LearnHubBO.Pages.CoursCategories.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CoursCategorie[0].NomCoursCategorie)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.CoursCategorie) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomCoursCategorie)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.IdCoursCategorie">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.IdCoursCategorie">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IdCoursCategorie">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

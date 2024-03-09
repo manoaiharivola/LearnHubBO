@@ -1,0 +1,60 @@
+@page
+@model LearnHubBO.Pages.Courses.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cours[0].TitreCours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cours[0].DateCreationCours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cours[0].DateModificationCours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cours[0].Formateur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cours[0].CoursCategorie)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Cours) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TitreCours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreationCours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateModificationCours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Formateur.NomFormateur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CoursCategorie.NomCoursCategorie)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.IdCours">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.IdCours">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IdCours">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

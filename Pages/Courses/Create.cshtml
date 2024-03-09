@@ -1,0 +1,42 @@
+@page
+@model LearnHubBO.Pages.Courses.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Cours</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Cours.TitreCours" class="control-label"></label>
+                <input asp-for="Cours.TitreCours" class="form-control" />
+                <span asp-validation-for="Cours.TitreCours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cours.IdFormateur" class="control-label"></label>
+                <select asp-for="Cours.IdFormateur" class ="form-control" asp-items="ViewBag.IdFormateur"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cours.IdCoursCategorie" class="control-label"></label>
+                <select asp-for="Cours.IdCoursCategorie" class ="form-control" asp-items="ViewBag.IdCoursCategorie"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
