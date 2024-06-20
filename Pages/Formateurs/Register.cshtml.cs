@@ -5,6 +5,8 @@ using LearnHubBackOffice.Models;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace LearnHubBO.Pages.Formateurs
 {
@@ -47,6 +49,16 @@ namespace LearnHubBO.Pages.Formateurs
 
             try
             {
+                var utilisateurExistant = await _context.Formateurs
+                    .Where(f => f.Email == Email)
+                    .FirstOrDefaultAsync();
+
+                if (utilisateurExistant != null)
+                {
+                    ModelState.AddModelError("Email", "Un utilisateur avec cette adresse email existe déjà.");
+                    return Page();
+                }
+
                 var formateur = new Formateur
                 {
                     NomFormateur = NomFormateur,
