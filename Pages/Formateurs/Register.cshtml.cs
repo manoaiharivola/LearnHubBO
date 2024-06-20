@@ -30,7 +30,7 @@ namespace LearnHubBO.Pages.Formateurs
         [BindProperty]
         [Required(ErrorMessage = "Le mot de passe est requis.")]
         [DataType(DataType.Password)]
-        [StringLength(100, ErrorMessage = "Le {0} doit contenir au moins {2} caractères.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Le mot de passe doit contenir au moins {2} caractères.", MinimumLength = 8)]
         public string MotDePasse { get; set; }
 
         public IActionResult OnGet()
