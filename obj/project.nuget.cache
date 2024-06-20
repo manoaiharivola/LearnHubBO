@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "SAIbRwlhbz4Z5gX9uwQE5wuCWuHAMxbCaEOQahzJP74j2+wup2gho1MEtoWjhNlp0OP5iMU4hqFGj4l03IAPsQ==",
+  "dgSpecHash": "KTOSXr0EwOLPK+FJ+0DUTQJ4URsxD39CSEOzExGLzcQHAoqtOQ5gR6g49E2wJxV4kREIGRDTu/Kv9yZdQQnimw==",
   "success": true,
   "projectFilePath": "C:\\Users\\My PC\\source\\repos\\LearnHub\\LearnHubBO\\LearnHubBO.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\My PC\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\My PC\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\My PC\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
     "C:\\Users\\My PC\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\My PC\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\My PC\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",
