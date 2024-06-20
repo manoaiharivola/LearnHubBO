@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LearnHubBO")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+376751570e833da9e1cc88329db510f2a51f29e0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2fc77a604dc22f806ba99dc85ce01a12dad5bc2e")]
 [assembly: System.Reflection.AssemblyProductAttribute("LearnHubBO")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LearnHubBO")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
