@@ -31,7 +31,7 @@ namespace LearnHubBO.Pages.CoursCategories
             if (!formateurId.HasValue)
             {
                 TempData["ErrorMessage"] = "Vous devez être connecté pour accéder à cette page.";
-                return RedirectToPage("../Formateurs/Login");
+                return RedirectToPage("/Formateurs/Login");
             }
 
             string formateurNom = _httpContextAccessor.HttpContext.Session.GetString("FormateurNom");
