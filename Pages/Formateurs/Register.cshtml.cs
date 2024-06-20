@@ -70,6 +70,7 @@ namespace LearnHubBO.Pages.Formateurs
                 _context.Formateurs.Add(formateur);
                 await _context.SaveChangesAsync();
 
+                TempData["SuccessMessage"] = "Inscription réussie ! Vous pouvez maintenant vous connecter.";
                 return RedirectToPage("./Login");
             }
             catch (Exception ex)
