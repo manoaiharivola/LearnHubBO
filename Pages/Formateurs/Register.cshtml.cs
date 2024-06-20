@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
-namespace LearnHubBO.Pages
+namespace LearnHubBO.Pages.Formateurs
 {
     public class RegisterModel : PageModel
     {
@@ -58,7 +58,7 @@ namespace LearnHubBO.Pages
                 _context.Formateurs.Add(formateur);
                 await _context.SaveChangesAsync();
 
-                return RedirectToPage("/Index");
+                return RedirectToPage("./Login");
             }
             catch (Exception ex)
             {
