@@ -44,13 +44,15 @@ namespace LearnHubBO.Pages.Formateurs
 
             if (formateur == null || !formateur.VerifyPassword(MotDePasse))
             {
-                ModelState.AddModelError(string.Empty, "Les informations de connexion sont incorrectes.");
+
+                TempData["ErrorMessage"] = "Les informations de connexion sont incorrectes.";
                 return Page();
             }
 
-            HttpContext.Session.SetInt32("UserFormateur", formateur.IdFormateur);
+            HttpContext.Session.SetInt32("FormateurId", formateur.IdFormateur);
+            HttpContext.Session.SetString("FormateurNom", formateur.NomFormateur);
 
-            return RedirectToPage("/Index");
+            return RedirectToPage("../CoursCategories/Index");
         }
     }
 }
