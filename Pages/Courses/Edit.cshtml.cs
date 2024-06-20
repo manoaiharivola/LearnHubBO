@@ -55,6 +55,7 @@ namespace LearnHubBO.Pages.Courses
             existingCours.TitreCours = Cours.TitreCours;
             existingCours.IdFormateur = Cours.IdFormateur;
             existingCours.IdCoursCategorie = Cours.IdCoursCategorie;
+            existingCours.Description = Cours.Description;
 
             existingCours.DateModificationCours = DateTime.Now;
 

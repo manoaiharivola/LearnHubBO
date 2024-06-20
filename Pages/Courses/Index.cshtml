@@ -17,16 +17,16 @@
                 @Html.DisplayNameFor(model => model.Cours[0].TitreCours)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Cours[0].DateCreationCours)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cours[0].DateModificationCours)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Cours[0].Formateur)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Cours[0].CoursCategorie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cours[0].DateCreationCours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cours[0].DateModificationCours)
             </th>
             <th></th>
         </tr>
@@ -38,16 +38,16 @@
                 @Html.DisplayFor(modelItem => item.TitreCours)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DateCreationCours)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateModificationCours)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Formateur.NomFormateur)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CoursCategorie.NomCoursCategorie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreationCours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateModificationCours)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.IdCours">Edit</a> |

@@ -27,6 +27,11 @@
                 <select asp-for="Cours.IdCoursCategorie" class ="form-control" asp-items="ViewBag.IdCoursCategorie"></select>
             </div>
             <div class="form-group">
+                <label asp-for="Cours.Description" class="control-label"></label>
+                <textarea asp-for="Cours.Description" class="form-control"></textarea>
+                <span asp-validation-for="Cours.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>

@@ -20,5 +20,7 @@ namespace LearnHubBackOffice.Models
 
         public Formateur Formateur { get; set; }
         public CoursCategorie CoursCategorie { get; set; }
+
+        public string Description { get; set; }
     }
 }
