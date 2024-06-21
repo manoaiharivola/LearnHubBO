@@ -7,14 +7,14 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Formateur[0].NomFormateur)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Formateur[0].Email)
             </th>
             <th></th>
         </tr>
@@ -24,6 +24,9 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.NomFormateur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.IdFormateur">Edit</a> |
