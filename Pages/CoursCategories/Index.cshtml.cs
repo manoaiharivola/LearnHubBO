@@ -13,17 +13,30 @@ namespace LearnHubBO.Pages.CoursCategories
     public class IndexModel : PageModel
     {
         private readonly LearnHubBackOffice.Data.AppDbContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public IndexModel(LearnHubBackOffice.Data.AppDbContext context)
+        public IndexModel(LearnHubBackOffice.Data.AppDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public IList<CoursCategorie> CoursCategorie { get;set; } = default!;
 
-        public async Task OnGetAsync()
+        public async Task<IActionResult> OnGetAsync()
         {
+            int? formateurId = _httpContextAccessor.HttpContext.Session.GetInt32("FormateurId");
+
+            if (!formateurId.HasValue)
+            {
+                TempData["ErrorMessage"] = "Vous devez être connecté pour accéder à cette page.";
+                return RedirectToPage("/Formateurs/Login");
+            }
+
+            string formateurNom = _httpContextAccessor.HttpContext.Session.GetString("FormateurNom");
+            ViewData["FormateurNom"] = formateurNom;
             CoursCategorie = await _context.CoursCategories.ToListAsync();
+            return Page();
         }
     }
 }
