@@ -13,10 +13,12 @@ namespace LearnHubBO.Pages.CoursCategories
     public class DeleteModel : PageModel
     {
         private readonly LearnHubBackOffice.Data.AppDbContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public DeleteModel(LearnHubBackOffice.Data.AppDbContext context)
+        public DeleteModel(LearnHubBackOffice.Data.AppDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         [BindProperty]
@@ -24,6 +26,17 @@ namespace LearnHubBO.Pages.CoursCategories
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            int? formateurId = _httpContextAccessor.HttpContext.Session.GetInt32("FormateurId");
+
+            if (!formateurId.HasValue)
+            {
+                TempData["ErrorMessage"] = "Vous devez être connecté pour accéder à cette page.";
+                return RedirectToPage("/Formateurs/Login");
+            }
+
+            string formateurNom = _httpContextAccessor.HttpContext.Session.GetString("FormateurNom");
+            ViewData["FormateurNom"] = formateurNom;
+
             if (id == null)
             {
                 return NotFound();
