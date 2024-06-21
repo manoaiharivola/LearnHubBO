@@ -37,7 +37,7 @@ namespace LearnHubBO.Pages.Formateurs
         [BindProperty]
         [DataType(DataType.Password)]
         [StringLength(100, ErrorMessage = "Le mot de passe doit contenir au moins {2} caractères.", MinimumLength = 8)]
-        public string MotDePasse { get; set; }
+        public string? MotDePasse { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -89,7 +89,7 @@ namespace LearnHubBO.Pages.Formateurs
 
                 if (!string.IsNullOrEmpty(MotDePasse))
                 {
-                    formateur.SetPassword(MotDePasse); // Assuming this method sets and hashes the password
+                    formateur.SetPassword(MotDePasse);
                 }
 
                 await _context.SaveChangesAsync();
