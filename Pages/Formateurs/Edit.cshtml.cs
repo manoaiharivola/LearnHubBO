@@ -102,10 +102,11 @@ namespace LearnHubBO.Pages.Formateurs
                     .Where(f => f.Email == Email && f.IdFormateur != IdFormateur)
                     .FirstOrDefaultAsync();
 
+                int? formateurId = _httpContextAccessor.HttpContext.Session.GetInt32("FormateurId");
+
+
                 if (utilisateurExistant != null)
                 {
-                    int? formateurId = _httpContextAccessor.HttpContext.Session.GetInt32("FormateurId");
-
                     if (!formateurId.HasValue)
                     {
                         TempData["ErrorMessage"] = "Vous devez être connecté pour accéder à cette page.";
@@ -119,7 +120,12 @@ namespace LearnHubBO.Pages.Formateurs
                     return Page();
                 }
 
+                
                 formateur.NomFormateur = NomFormateur;
+                if(formateur.IdFormateur == formateurId)
+                {
+                    HttpContext.Session.SetString("FormateurNom", formateur.NomFormateur);
+                }
                 formateur.Email = Email;
 
                 if (!string.IsNullOrEmpty(MotDePasse))
