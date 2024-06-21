@@ -17,14 +17,14 @@ namespace LearnHubBackOffice.Models
         [ForeignKey("CoursCategorie")]
         public int IdCoursCategorie { get; set; }
 
-        [Required]
+     
         public DateTime DateCreationCours { get; set; }
-        [Required]
+        
         public DateTime DateModificationCours { get; set; }
 
-        [Required]
+       
         public Formateur Formateur { get; set; }
-        [Required]
+       
         public CoursCategorie CoursCategorie { get; set; }
 
         public string? Description { get; set; }

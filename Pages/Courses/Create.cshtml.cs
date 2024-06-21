@@ -69,6 +69,23 @@ namespace LearnHubBO.Pages.Courses
 
             Cours.CoursCategorie = categorie;
 
+            if (Cours.TitreCours==null)
+            {
+                int? formateurId = _httpContextAccessor.HttpContext.Session.GetInt32("FormateurId");
+
+                if (!formateurId.HasValue)
+                {
+                    TempData["ErrorMessage"] = "Vous devez être connecté pour accéder à cette page.";
+                    return RedirectToPage("/Formateurs/Login");
+                }
+
+                string formateurNom = _httpContextAccessor.HttpContext.Session.GetString("FormateurNom");
+                ViewData["FormateurNom"] = formateurNom;
+                ViewData["IdCoursCategorie"] = new SelectList(_context.CoursCategories, "IdCoursCategorie", "NomCoursCategorie");
+                ViewData["IdFormateur"] = new SelectList(_context.Formateurs, "IdFormateur", "NomFormateur");
+                return Page();
+            }
+
             _context.Courses.Add(Cours);
             await _context.SaveChangesAsync();
 
