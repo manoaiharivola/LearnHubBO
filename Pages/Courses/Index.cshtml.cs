@@ -37,7 +37,9 @@ namespace LearnHubBO.Pages.Courses
             ViewData["FormateurNom"] = formateurNom;
             Cours = await _context.Courses
                 .Include(c => c.CoursCategorie)
-                .Include(c => c.Formateur).ToListAsync();
+                .Include(c => c.Formateur)
+                .Where(c => c.IdFormateur == formateurId)
+                .ToListAsync();
             return Page();
         }
     }

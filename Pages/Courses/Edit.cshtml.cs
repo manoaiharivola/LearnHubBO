@@ -66,6 +66,11 @@ namespace LearnHubBO.Pages.Courses
                                                .FirstOrDefaultAsync(c => c.IdCours == Cours.IdCours);
 
             existingCours.TitreCours = Cours.TitreCours;
+
+            int? formateurId = _httpContextAccessor.HttpContext.Session.GetInt32("FormateurId");
+
+            Cours.IdFormateur = (int)formateurId;
+
             existingCours.IdFormateur = Cours.IdFormateur;
             existingCours.IdCoursCategorie = Cours.IdCoursCategorie;
             existingCours.Description = Cours.Description;

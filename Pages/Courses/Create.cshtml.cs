@@ -49,6 +49,10 @@ namespace LearnHubBO.Pages.Courses
             Cours.DateCreationCours = now;
             Cours.DateModificationCours = now;
 
+            int? formateurId = _httpContextAccessor.HttpContext.Session.GetInt32("FormateurId");
+           
+            Cours.IdFormateur = (int) formateurId;
+
             var formateur = await _context.Formateurs.FindAsync(Cours.IdFormateur);
 
             if (formateur == null)
@@ -71,8 +75,6 @@ namespace LearnHubBO.Pages.Courses
 
             if (Cours.TitreCours==null)
             {
-                int? formateurId = _httpContextAccessor.HttpContext.Session.GetInt32("FormateurId");
-
                 if (!formateurId.HasValue)
                 {
                     TempData["ErrorMessage"] = "Vous devez être connecté pour accéder à cette page.";
