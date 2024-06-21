@@ -25,7 +25,13 @@
             @Html.DisplayFor(model => model.Formateur.Email)
         </dd>
     </dl>
-    
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="text-danger">
+            @TempData["ErrorMessage"]
+        </div>
+        <br />
+    }
     <form method="post">
         <input type="hidden" asp-for="Formateur.IdFormateur" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using LearnHubBackOffice.Data;
 using LearnHubBackOffice.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace LearnHubBO.Pages.Formateurs
 {
@@ -50,12 +51,35 @@ namespace LearnHubBO.Pages.Formateurs
             }
 
             var formateur = await _context.Formateurs.FindAsync(id);
-            if (formateur != null)
+            if (formateur == null)
             {
-                Formateur = formateur;
-                _context.Formateurs.Remove(Formateur);
-                await _context.SaveChangesAsync();
+                return NotFound();
             }
+
+            var idUtilisateurConnecte = HttpContext.Session.GetInt32("FormateurId");
+            if (idUtilisateurConnecte == formateur.IdFormateur)
+            {
+                TempData["ErrorMessage"] = "Vous ne pouvez pas supprimer votre propre compte.";
+                if (id == null)
+                {
+                    return NotFound();
+                }
+
+                var formateurError = await _context.Formateurs.FirstOrDefaultAsync(m => m.IdFormateur == id);
+
+                if (formateurError == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    Formateur = formateurError;
+                }
+                return Page();
+            }
+
+            _context.Formateurs.Remove(formateur);
+            await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }
