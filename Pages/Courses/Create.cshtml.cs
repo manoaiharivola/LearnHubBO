@@ -14,16 +14,28 @@ namespace LearnHubBO.Pages.Courses
     public class CreateModel : PageModel
     {
         private readonly LearnHubBackOffice.Data.AppDbContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public CreateModel(LearnHubBackOffice.Data.AppDbContext context)
+        public CreateModel(LearnHubBackOffice.Data.AppDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public IActionResult OnGet()
         {
-        ViewData["IdCoursCategorie"] = new SelectList(_context.CoursCategories, "IdCoursCategorie", "NomCoursCategorie");
-        ViewData["IdFormateur"] = new SelectList(_context.Formateurs, "IdFormateur", "NomFormateur");
+            int? formateurId = _httpContextAccessor.HttpContext.Session.GetInt32("FormateurId");
+
+            if (!formateurId.HasValue)
+            {
+                TempData["ErrorMessage"] = "Vous devez être connecté pour accéder à cette page.";
+                return RedirectToPage("/Formateurs/Login");
+            }
+
+            string formateurNom = _httpContextAccessor.HttpContext.Session.GetString("FormateurNom");
+            ViewData["FormateurNom"] = formateurNom;
+            ViewData["IdCoursCategorie"] = new SelectList(_context.CoursCategories, "IdCoursCategorie", "NomCoursCategorie");
+            ViewData["IdFormateur"] = new SelectList(_context.Formateurs, "IdFormateur", "NomFormateur");
             return Page();
         }
 
