@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OUY5zbkgomqe1mYmy2+0pOjwkC3oZPVQo1HwWUs4K64=",
+  "Hash": "NEYeljH6wgumZMJQWqUV42YVVvHkM9Hdz8hTpmwHPtI=",
   "Source": "LearnHubBO",
   "BasePath": "_content/LearnHubBO",
   "Mode": "Default",
@@ -2333,6 +2333,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\images\\faces\\face9.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\My PC\\source\\repos\\LearnHub\\LearnHubBO\\wwwroot\\assets\\images\\faces\\user.png",
+      "SourceId": "LearnHubBO",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\My PC\\source\\repos\\LearnHub\\LearnHubBO\\wwwroot\\",
+      "BasePath": "_content/LearnHubBO",
+      "RelativePath": "assets/images/faces/user.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\images\\faces\\user.png"
     },
     {
       "Identity": "C:\\Users\\My PC\\source\\repos\\LearnHub\\LearnHubBO\\wwwroot\\assets\\images\\faces-clipart\\pic-1.png",

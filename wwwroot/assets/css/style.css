@@ -10215,7 +10215,7 @@ progress {
   --bs-table-active-color: var(--bs-emphasis-color);
   --bs-table-active-bg: rgba(var(--bs-emphasis-color-rgb), 0.1);
   --bs-table-hover-color: var(--bs-emphasis-color);
-  --bs-table-hover-bg: #f2edf3;
+  --bs-table-hover-bg: #fef7ff;
   width: 100%;
   margin-bottom: 1rem;
   vertical-align: top;
@@ -13865,7 +13865,7 @@ textarea.is-invalid.tt-hint, .select2-container--default .select2-selection--sin
   --bs-modal-padding: 0.937rem;
   --bs-modal-margin: 10px;
   --bs-modal-color: ;
-  --bs-modal-bg: #f2edf3;
+  --bs-modal-bg: #fef7ff;
   --bs-modal-border-color: #ebedf2;
   --bs-modal-border-width: 1px;
   --bs-modal-border-radius: var(--bs-border-radius-lg);
@@ -20951,7 +20951,7 @@ code {
 
 /* Footer */
 .footer {
-  background: #f2edf3;
+  background: #fef7ff;
   color: color(dark);
   border-top: 1px solid #e7dee9;
   padding: 30px 1rem;
@@ -25069,7 +25069,7 @@ dl li {
 .auth.multi-step-login {
   height: 100%;
   min-height: 100vh;
-  background: #f2edf3;
+  background: #fef7ff;
 }
 .auth.multi-step-login .step-form {
   position: relative;
@@ -26280,7 +26280,7 @@ dl li {
 }
 
 .content-wrapper {
-  background: #f2edf3;
+  background: #fef7ff;
   padding: 2.75rem 2.25rem;
   width: 100%;
   -webkit-flex-grow: 1;

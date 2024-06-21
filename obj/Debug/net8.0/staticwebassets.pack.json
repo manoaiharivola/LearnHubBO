@@ -501,6 +501,10 @@
       "PackagePath": "staticwebassets\\assets\\images\\faces\\face9.jpg"
     },
     {
+      "Id": "C:\\Users\\My PC\\source\\repos\\LearnHub\\LearnHubBO\\wwwroot\\assets\\images\\faces\\user.png",
+      "PackagePath": "staticwebassets\\assets\\images\\faces\\user.png"
+    },
+    {
       "Id": "C:\\Users\\My PC\\source\\repos\\LearnHub\\LearnHubBO\\wwwroot\\assets\\images\\favicon.ico",
       "PackagePath": "staticwebassets\\assets\\images\\favicon.ico"
     },
