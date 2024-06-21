@@ -33,6 +33,27 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.Use(async (context, next) =>
+{
+    if (context.Request.Path == "/")
+    {
+        var formateurId = context.Session.GetString("FormateurId");
+        var formateurNom = context.Session.GetString("FormateurNom");
+        if (!string.IsNullOrEmpty(formateurNom) && !string.IsNullOrEmpty(formateurId))
+        {
+            context.Response.Redirect("/Index");
+        }
+        else
+        {
+            context.Response.Redirect("/Formateurs/Login");
+        }
+    }
+    else
+    {
+        await next();
+    }
+});
+
 app.MapRazorPages();
 
 app.Run();
