@@ -15,11 +15,13 @@ namespace LearnHubBO.Pages.Formateurs
     {
         private readonly AppDbContext _context;
         private readonly ILogger<EditModel> _logger;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public EditModel(AppDbContext context, ILogger<EditModel> logger)
+        public EditModel(AppDbContext context, ILogger<EditModel> logger, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
             _logger = logger;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         [BindProperty]
@@ -41,6 +43,17 @@ namespace LearnHubBO.Pages.Formateurs
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
+            int? formateurId = _httpContextAccessor.HttpContext.Session.GetInt32("FormateurId");
+
+            if (!formateurId.HasValue)
+            {
+                TempData["ErrorMessage"] = "Vous devez être connecté pour accéder à cette page.";
+                return RedirectToPage("/Formateurs/Login");
+            }
+
+            string formateurNom = _httpContextAccessor.HttpContext.Session.GetString("FormateurNom");
+            ViewData["FormateurNom"] = formateurNom;
+
             if (id == null)
             {
                 return NotFound();
@@ -63,6 +76,17 @@ namespace LearnHubBO.Pages.Formateurs
         {
             if (!ModelState.IsValid)
             {
+                int? formateurId = _httpContextAccessor.HttpContext.Session.GetInt32("FormateurId");
+
+                if (!formateurId.HasValue)
+                {
+                    TempData["ErrorMessage"] = "Vous devez être connecté pour accéder à cette page.";
+                    return RedirectToPage("/Formateurs/Login");
+                }
+
+                string formateurNom = _httpContextAccessor.HttpContext.Session.GetString("FormateurNom");
+                ViewData["FormateurNom"] = formateurNom;
+
                 return Page();
             }
 
@@ -80,6 +104,17 @@ namespace LearnHubBO.Pages.Formateurs
 
                 if (utilisateurExistant != null)
                 {
+                    int? formateurId = _httpContextAccessor.HttpContext.Session.GetInt32("FormateurId");
+
+                    if (!formateurId.HasValue)
+                    {
+                        TempData["ErrorMessage"] = "Vous devez être connecté pour accéder à cette page.";
+                        return RedirectToPage("/Formateurs/Login");
+                    }
+
+                    string formateurNom = _httpContextAccessor.HttpContext.Session.GetString("FormateurNom");
+                    ViewData["FormateurNom"] = formateurNom;
+
                     ModelState.AddModelError("Email", "Un utilisateur avec cette adresse email existe déjà.");
                     return Page();
                 }
