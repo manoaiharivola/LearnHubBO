@@ -52,7 +52,7 @@ namespace LearnHubBO.Pages.Formateurs
             HttpContext.Session.SetInt32("FormateurId", formateur.IdFormateur);
             HttpContext.Session.SetString("FormateurNom", formateur.NomFormateur);
 
-            return RedirectToPage("/CoursCategories/Create");
+            return RedirectToPage("/Courses/Index");
         }
     }
 }
