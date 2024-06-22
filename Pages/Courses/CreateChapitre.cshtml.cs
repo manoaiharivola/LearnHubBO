@@ -125,6 +125,16 @@ namespace LearnHubBO.Pages.Courses
                 return Page();
             }
 
+            var existingChapitres = await _context.Chapitres
+                .Where(c => c.IdCours == Chapitre.IdCours && c.Ordre >= Chapitre.Ordre)
+                .OrderBy(c => c.Ordre)
+                .ToListAsync();
+
+            foreach (var existingChapitre in existingChapitres)
+            {
+                existingChapitre.Ordre++;
+            }
+
             _context.Chapitres.Add(Chapitre);
             await _context.SaveChangesAsync();
 

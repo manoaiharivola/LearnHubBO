@@ -30,6 +30,9 @@
                 <span asp-validation-for="Chapitre.Contenu" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <input asp-for="Chapitre.IdCours" class="form-control" hidden value="@Model.Cours.IdCours" />
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
