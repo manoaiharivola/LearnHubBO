@@ -1,0 +1,41 @@
+﻿@page
+@model LearnHubBO.Pages.Courses.CreateChapitreModel
+@{
+}
+
+@{
+    ViewData["Title"] = "Create Chapitre";
+}
+
+<h4>Nouveau chapitre du cours @Model.Cours.TitreCours</h4>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Chapitre.TitreChapitre" class="control-label"></label>
+                <input asp-for="Chapitre.TitreChapitre" class="form-control" />
+                <span asp-validation-for="Chapitre.TitreChapitre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Chapitre.Ordre" class="control-label"></label>
+                <input asp-for="Chapitre.Ordre" type="number" class="form-control" min="1" placeholder="1" value="1"/>
+                <span asp-validation-for="Chapitre.Ordre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Chapitre.Contenu" class="control-label"></label>
+                <textarea id="tiny" asp-for="Chapitre.Contenu" class="form-control" style="width:1000px;"></textarea>
+                <span asp-validation-for="Chapitre.Contenu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Chapitres" asp-route-id="@Model.Cours.IdCours">Back to List Chapitres</a>
+</div>

@@ -10,7 +10,7 @@
 <h4>Catégorie : @Model.Cours.CoursCategorie.NomCoursCategorie</h4>
 
 <p>
-    <a asp-page="CreateChapter" asp-route-idCours="@Model.Cours.IdCours">Create New</a>
+    <a asp-page="./CreateChapitre" asp-route-idCours="@Model.Cours.IdCours">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -20,9 +20,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Chapitres[0].Ordre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Chapitres[0].Contenu)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Chapitres[0].DateCreationChapitre)
@@ -41,10 +38,7 @@
                     @Html.DisplayFor(modelItem => item.TitreChapitre)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Ordre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Contenu)
+                    Chapitre @Html.DisplayFor(modelItem => item.Ordre)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.DateCreationChapitre)
