@@ -1,20 +1,23 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using LearnHubBackOffice.Data;
-using LearnHubBO.Models;
-using LearnHubBackOffice.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using LearnHubBO.Models;
+using LearnHubBackOffice.Data;
+using LearnHubBackOffice.Models;
 
 namespace LearnHubBO.Pages.Courses
 {
-    public class CreateChapitreModel : PageModel
+    public class EditChapitreModel : PageModel
     {
         private readonly AppDbContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public CreateChapitreModel(AppDbContext context, IHttpContextAccessor httpContextAccessor)
+        public EditChapitreModel(AppDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
             _httpContextAccessor = httpContextAccessor;
@@ -26,7 +29,7 @@ namespace LearnHubBO.Pages.Courses
         [BindProperty]
         public Cours Cours { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? idCours)
+        public async Task<IActionResult> OnGetAsync(int? id)
         {
             int? formateurId = _httpContextAccessor.HttpContext.Session.GetInt32("FormateurId");
 
@@ -39,7 +42,19 @@ namespace LearnHubBO.Pages.Courses
             string formateurNom = _httpContextAccessor.HttpContext.Session.GetString("FormateurNom");
             ViewData["FormateurNom"] = formateurNom;
 
-            var cours = await _context.Courses.FirstOrDefaultAsync(m => m.IdCours == idCours);
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var chapitre = await _context.Chapitres.FirstOrDefaultAsync(m => m.IdChapitre == id);
+            if (chapitre == null)
+            {
+                return NotFound();
+            }
+            Chapitre = chapitre;
+
+            var cours = await _context.Courses.FirstOrDefaultAsync(m => m.IdCours == Chapitre.IdCours);
 
             if (cours == null)
             {
@@ -76,9 +91,17 @@ namespace LearnHubBO.Pages.Courses
             return Page();
         }
 
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see https://aka.ms/RazorPagesCRUD.
         public async Task<IActionResult> OnPostAsync()
         {
-            var cours = await _context.Courses.FirstOrDefaultAsync(m => m.IdCours == Chapitre.IdCours);
+            var existingChapitre = await _context.Chapitres
+                                               .AsNoTracking()
+                                               .FirstOrDefaultAsync(c => c.IdChapitre == Chapitre.IdChapitre);
+
+            existingChapitre.IdCours = Chapitre.IdCours;
+
+            var cours = await _context.Courses.FirstOrDefaultAsync(m => m.IdCours == existingChapitre.IdCours);
 
             if (cours == null)
             {
@@ -105,12 +128,13 @@ namespace LearnHubBO.Pages.Courses
 
             cours.CoursCategorie = categorie;
 
-            Chapitre.Cours = cours;
-            var now = DateTime.Now;
-            Chapitre.DateCreationChapitre = now;
-            Chapitre.DateModificationChapitre = now;
+            existingChapitre.Cours = cours;
+            existingChapitre.TitreChapitre = Chapitre.TitreChapitre;
+            existingChapitre.Ordre = Chapitre.Ordre;
+            existingChapitre.DateModificationChapitre = DateTime.Now;
+            existingChapitre.Contenu = Chapitre.Contenu;
 
-            if (Chapitre.TitreChapitre == null || Chapitre.Contenu == null)
+            if (existingChapitre.TitreChapitre == null || existingChapitre.Contenu == null)
             {
                 int? formateurId = _httpContextAccessor.HttpContext.Session.GetInt32("FormateurId");
 
@@ -122,24 +146,35 @@ namespace LearnHubBO.Pages.Courses
 
                 string formateurNom = _httpContextAccessor.HttpContext.Session.GetString("FormateurNom");
                 ViewData["FormateurNom"] = formateurNom;
-                Cours = Chapitre.Cours;
+
+                Cours = existingChapitre.Cours;
                 return Page();
             }
 
-            var existingChapitres = await _context.Chapitres
-                .Where(c => c.IdCours == Chapitre.IdCours && c.Ordre >= Chapitre.Ordre)
-                .OrderBy(c => c.Ordre)
-                .ToListAsync();
+            _context.Attach(existingChapitre).State = EntityState.Modified;
 
-            foreach (var existingChapitre in existingChapitres)
+            try
             {
-                existingChapitre.Ordre++;
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ChapitreExists(existingChapitre.IdChapitre))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
             }
 
-            _context.Chapitres.Add(Chapitre);
-            await _context.SaveChangesAsync();
+            return RedirectToPage("./Chapitres", new { id = existingChapitre.IdCours });
+        }
 
-            return RedirectToPage("./Chapitres", new { id = Chapitre.IdCours });
+        private bool ChapitreExists(int id)
+        {
+            return _context.Chapitres.Any(e => e.IdChapitre == id);
         }
     }
 }

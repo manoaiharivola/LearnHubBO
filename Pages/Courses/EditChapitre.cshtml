@@ -1,5 +1,5 @@
 @page
-@model LearnHubBO.Pages.Chapitres.EditModel
+@model EditChapitreModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -7,7 +7,7 @@
 
 <h1>Edit</h1>
 
-<h4>Chapitre</h4>
+<h4>Chapitre du cours @Model.Cours.TitreCours</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -21,28 +21,16 @@
             </div>
             <div class="form-group">
                 <label asp-for="Chapitre.Ordre" class="control-label"></label>
-                <input asp-for="Chapitre.Ordre" class="form-control" />
+                <input asp-for="Chapitre.Ordre" type="number" class="form-control" min="1"/>
                 <span asp-validation-for="Chapitre.Ordre" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Chapitre.Contenu" class="control-label"></label>
-                <input asp-for="Chapitre.Contenu" class="form-control" />
+                <textarea id="tiny" asp-for="Chapitre.Contenu" class="form-control" style="width:1000px;"></textarea>
                 <span asp-validation-for="Chapitre.Contenu" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Chapitre.IdCours" class="control-label"></label>
-                <select asp-for="Chapitre.IdCours" class="form-control" asp-items="ViewBag.IdCours"></select>
-                <span asp-validation-for="Chapitre.IdCours" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Chapitre.DateCreationChapitre" class="control-label"></label>
-                <input asp-for="Chapitre.DateCreationChapitre" class="form-control" />
-                <span asp-validation-for="Chapitre.DateCreationChapitre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Chapitre.DateModificationChapitre" class="control-label"></label>
-                <input asp-for="Chapitre.DateModificationChapitre" class="form-control" />
-                <span asp-validation-for="Chapitre.DateModificationChapitre" class="text-danger"></span>
+                <input asp-for="Chapitre.IdCours" class="form-control" hidden value="@Model.Cours.IdCours" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
@@ -52,7 +40,7 @@
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Chapitres" asp-route-id="@Model.Cours.IdCours">Back to List Chapitres</a>
 </div>
 
 @section Scripts {
