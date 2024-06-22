@@ -50,6 +50,7 @@
                 @Html.DisplayFor(modelItem => item.DateModificationCours)
             </td>
             <td>
+                <a asp-page="./Chapitres" asp-route-id="@item.IdCours">Chapitres</a> |
                 <a asp-page="./Edit" asp-route-id="@item.IdCours">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.IdCours">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.IdCours">Delete</a>

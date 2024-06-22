@@ -1,0 +1,60 @@
+@page
+@model LearnHubBO.Pages.Chapitres.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Chapitre</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Chapitre.IdChapitre" />
+            <div class="form-group">
+                <label asp-for="Chapitre.TitreChapitre" class="control-label"></label>
+                <input asp-for="Chapitre.TitreChapitre" class="form-control" />
+                <span asp-validation-for="Chapitre.TitreChapitre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Chapitre.Ordre" class="control-label"></label>
+                <input asp-for="Chapitre.Ordre" class="form-control" />
+                <span asp-validation-for="Chapitre.Ordre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Chapitre.Contenu" class="control-label"></label>
+                <input asp-for="Chapitre.Contenu" class="form-control" />
+                <span asp-validation-for="Chapitre.Contenu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Chapitre.IdCours" class="control-label"></label>
+                <select asp-for="Chapitre.IdCours" class="form-control" asp-items="ViewBag.IdCours"></select>
+                <span asp-validation-for="Chapitre.IdCours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Chapitre.DateCreationChapitre" class="control-label"></label>
+                <input asp-for="Chapitre.DateCreationChapitre" class="form-control" />
+                <span asp-validation-for="Chapitre.DateCreationChapitre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Chapitre.DateModificationChapitre" class="control-label"></label>
+                <input asp-for="Chapitre.DateModificationChapitre" class="form-control" />
+                <span asp-validation-for="Chapitre.DateModificationChapitre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

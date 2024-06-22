@@ -26,6 +26,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\My PC\source\repos\LearnHub\LearnHubBO
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/My PC/source/repos/LearnHub/LearnHubBO/Pages/Chapitres/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhcGl0cmVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/My PC/source/repos/LearnHub/LearnHubBO/Pages/Chapitres/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhcGl0cmVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/My PC/source/repos/LearnHub/LearnHubBO/Pages/Chapitres/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhcGl0cmVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/My PC/source/repos/LearnHub/LearnHubBO/Pages/Chapitres/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhcGl0cmVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/My PC/source/repos/LearnHub/LearnHubBO/Pages/Chapitres/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhcGl0cmVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/My PC/source/repos/LearnHub/LearnHubBO/Pages/CoursCategories/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNDYXRlZ29yaWVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -44,6 +64,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/My PC/source/repos/LearnHub/LearnHubBO/Pages/CoursCategories/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNDYXRlZ29yaWVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/My PC/source/repos/LearnHub/LearnHubBO/Pages/Courses/Chapitres.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNlc1xDaGFwaXRyZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/My PC/source/repos/LearnHub/LearnHubBO/Pages/Courses/Create.cshtml]

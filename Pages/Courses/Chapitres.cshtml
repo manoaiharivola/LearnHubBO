@@ -1,0 +1,63 @@
+﻿@page
+@model LearnHubBO.Pages.Courses.ChapitresModel
+
+@{
+    ViewData["Title"] = "Chapitres";
+}
+
+<h4>Chapitres pour le cours : @Model.Cours.TitreCours</h4>
+<h4>Formateur : @Model.Cours.Formateur.NomFormateur</h4>
+<h4>Catégorie : @Model.Cours.CoursCategorie.NomCoursCategorie</h4>
+
+<p>
+    <a asp-page="CreateChapter" asp-route-idCours="@Model.Cours.IdCours">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Chapitres[0].TitreChapitre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chapitres[0].Ordre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chapitres[0].Contenu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chapitres[0].DateCreationChapitre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chapitres[0].DateModificationChapitre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Chapitres)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TitreChapitre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ordre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contenu)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateCreationChapitre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateModificationChapitre)
+                </td>
+                <td>
+                    <a asp-page="./EditChapter" asp-route-id="@item.IdChapitre">Edit</a> |
+                    <a asp-page="./DetailsChapter" asp-route-id="@item.IdChapitre">Details</a> |
+                    <a asp-page="./DeleteChapter" asp-route-id="@item.IdChapitre">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

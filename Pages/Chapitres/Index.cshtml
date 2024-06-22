@@ -1,0 +1,66 @@
+@page
+@model LearnHubBO.Pages.Chapitres.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Chapitre[0].TitreChapitre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chapitre[0].Ordre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chapitre[0].Contenu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chapitre[0].Cours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chapitre[0].DateCreationChapitre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chapitre[0].DateModificationChapitre)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Chapitre) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TitreChapitre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ordre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contenu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cours.TitreCours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreationChapitre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateModificationChapitre)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.IdChapitre">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.IdChapitre">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IdChapitre">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

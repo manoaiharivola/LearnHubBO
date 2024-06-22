@@ -1,4 +1,5 @@
 ﻿using LearnHubBackOffice.Models;
+using LearnHubBO.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace LearnHubBackOffice.Data
@@ -10,5 +11,6 @@ namespace LearnHubBackOffice.Data
         public DbSet<Formateur> Formateurs { get; set; }
         public DbSet<CoursCategorie> CoursCategories { get; set; }
         public DbSet<Cours> Courses { get; set; }
+        public DbSet<Chapitre> Chapitres { get; set; }
     }
 }
