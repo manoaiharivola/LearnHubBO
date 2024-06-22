@@ -34,10 +34,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhcGl0cmVzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/My PC/source/repos/LearnHub/LearnHubBO/Pages/Chapitres/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhcGl0cmVzXERldGFpbHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/My PC/source/repos/LearnHub/LearnHubBO/Pages/Chapitres/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhcGl0cmVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -84,6 +80,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/My PC/source/repos/LearnHub/LearnHubBO/Pages/Courses/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/My PC/source/repos/LearnHub/LearnHubBO/Pages/Courses/DetailsChapitre.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNlc1xEZXRhaWxzQ2hhcGl0cmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/My PC/source/repos/LearnHub/LearnHubBO/Pages/Courses/Edit.cshtml]

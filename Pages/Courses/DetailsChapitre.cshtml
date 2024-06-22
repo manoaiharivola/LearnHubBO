@@ -1,5 +1,5 @@
 @page
-@model LearnHubBO.Pages.Chapitres.DetailsModel
+@model DetailsChapitreModel
 
 @{
     ViewData["Title"] = "Details";
@@ -8,7 +8,7 @@
 <h1>Details</h1>
 
 <div>
-    <h4>Chapitre</h4>
+    <h4>Chapitre du cours @Model.Cours.TitreCours</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -21,19 +21,7 @@
             @Html.DisplayNameFor(model => model.Chapitre.Ordre)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Chapitre.Ordre)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Chapitre.Contenu)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Chapitre.Contenu)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Chapitre.Cours)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Chapitre.Cours.TitreCours)
+            Chapitre @Html.DisplayFor(model => model.Chapitre.Ordre)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Chapitre.DateCreationChapitre)
@@ -47,9 +35,17 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Chapitre.DateModificationChapitre)
         </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Chapitre.Contenu)
+        </dt>
+        <p>
+            <dd class="col-sm-10" style="width: 1000px; background-color: white; border-radius: 10px; border-style: solid; border-width: 2px; border-color: #eeeeee; padding: 20px; overflow-x: auto;">
+                    @Html.Raw(Model.Chapitre.Contenu)
+            </dd>
+        </p>
     </dl>
 </div>
 <div>
     <a asp-page="./Edit" asp-route-id="@Model.Chapitre.IdChapitre">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Chapitres" asp-route-id="@Model.Cours.IdCours">Back to List Chapitres</a>
 </div>
