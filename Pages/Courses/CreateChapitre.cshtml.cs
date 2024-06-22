@@ -138,7 +138,7 @@ namespace LearnHubBO.Pages.Courses
             _context.Chapitres.Add(Chapitre);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("Chapitres", new { id = Chapitre.IdCours });
+            return RedirectToPage("./Chapitres", new { id = Chapitre.IdCours });
         }
     }
 }

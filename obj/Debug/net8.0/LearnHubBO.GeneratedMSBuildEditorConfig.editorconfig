@@ -30,10 +30,6 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhcGl0cmVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/My PC/source/repos/LearnHub/LearnHubBO/Pages/Chapitres/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhcGl0cmVzXERlbGV0ZS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/My PC/source/repos/LearnHub/LearnHubBO/Pages/Chapitres/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhcGl0cmVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -76,6 +72,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/My PC/source/repos/LearnHub/LearnHubBO/Pages/Courses/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/My PC/source/repos/LearnHub/LearnHubBO/Pages/Courses/DeleteChapitre.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291cnNlc1xEZWxldGVDaGFwaXRyZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/My PC/source/repos/LearnHub/LearnHubBO/Pages/Courses/Details.cshtml]
