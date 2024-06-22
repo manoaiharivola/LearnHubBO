@@ -130,6 +130,7 @@ namespace LearnHubBO.Pages.Courses
 
             existingChapitre.Cours = cours;
             existingChapitre.TitreChapitre = Chapitre.TitreChapitre;
+            var ancienOrdre = existingChapitre.Ordre;
             existingChapitre.Ordre = Chapitre.Ordre;
             existingChapitre.DateModificationChapitre = DateTime.Now;
             existingChapitre.Contenu = Chapitre.Contenu;
@@ -152,6 +153,37 @@ namespace LearnHubBO.Pages.Courses
             }
 
             _context.Attach(existingChapitre).State = EntityState.Modified;
+
+            if(ancienOrdre < existingChapitre.Ordre)
+            {
+                var chapitres = await _context.Chapitres
+                .Where(c => c.IdCours == Chapitre.IdCours && c.Ordre <= existingChapitre.Ordre && c.Ordre > ancienOrdre)
+                .OrderBy(c => c.Ordre)
+                .ToListAsync();
+
+                foreach (var c in chapitres)
+                {
+                    if (c.IdChapitre != existingChapitre.IdChapitre)
+                    {
+                        c.Ordre--;
+                    }
+                }
+            }
+            else if (ancienOrdre > existingChapitre.Ordre)
+            {
+                var chapitres = await _context.Chapitres
+                .Where(c => c.IdCours == Chapitre.IdCours && c.Ordre >= existingChapitre.Ordre)
+                .OrderBy(c => c.Ordre)
+                .ToListAsync();
+
+                foreach (var c in chapitres)
+                {
+                    if (c.IdChapitre != existingChapitre.IdChapitre)
+                    {
+                        c.Ordre++;
+                    }
+                }
+            }
 
             try
             {
