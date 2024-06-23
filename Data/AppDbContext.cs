@@ -14,5 +14,7 @@ namespace LearnHubBackOffice.Data
         public DbSet<Chapitre> Chapitres { get; set; }
 
         public DbSet<Utilisateur> Utilisateurs { get; set; }
+
+        public DbSet<CoursUtilisateur> CoursUtilisateur { get; set; }
     }
 }
