@@ -172,7 +172,7 @@ namespace LearnHubBO.Pages.Courses
             else if (ancienOrdre > existingChapitre.Ordre)
             {
                 var chapitres = await _context.Chapitres
-                .Where(c => c.IdCours == Chapitre.IdCours && c.Ordre >= existingChapitre.Ordre)
+                .Where(c => c.IdCours == Chapitre.IdCours && c.Ordre >= existingChapitre.Ordre && c.Ordre < ancienOrdre)
                 .OrderBy(c => c.Ordre)
                 .ToListAsync();
 
