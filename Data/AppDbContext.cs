@@ -12,5 +12,7 @@ namespace LearnHubBackOffice.Data
         public DbSet<CoursCategorie> CoursCategories { get; set; }
         public DbSet<Cours> Courses { get; set; }
         public DbSet<Chapitre> Chapitres { get; set; }
+
+        public DbSet<Utilisateur> Utilisateurs { get; set; }
     }
 }
