@@ -41,7 +41,7 @@ app.Use(async (context, next) =>
         var formateurNom = context.Session.GetString("FormateurNom");
         if (!string.IsNullOrEmpty(formateurNom) && !string.IsNullOrEmpty(formateurId))
         {
-            context.Response.Redirect("/Index");
+            context.Response.Redirect("/Courses");
         }
         else
         {
