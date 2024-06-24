@@ -2,27 +2,27 @@
 @model LearnHubBO.Pages.CoursCategories.DeleteModel
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Supprimer un catégorie";
 }
 
-<h1>Delete</h1>
+<h1>Supprimer un catégorie</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Êtes-vous sûr de vouloir supprimer ceci ?</h3>
 <div>
-    <h4>CoursCategorie</h4>
+    <h4>Catégorie de Cours</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.CoursCategorie.NomCoursCategorie)
+            Nom de la catégorie
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CoursCategorie.NomCoursCategorie)
         </dd>
     </dl>
-    
+
     <form method="post">
         <input type="hidden" asp-for="CoursCategorie.IdCoursCategorie" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
+        <input type="submit" value="Supprimer" class="btn btn-danger" /> |
+        <a asp-page="./Index">Retour à la liste des catégories</a>
     </form>
 </div>

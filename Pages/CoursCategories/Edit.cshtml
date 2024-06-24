@@ -2,12 +2,11 @@
 @model LearnHubBO.Pages.CoursCategories.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Modifier une catégorie";
 }
 
-<h1>Edit</h1>
+<h1>Modifier une catégorie</h1>
 
-<h4>CoursCategorie</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -15,21 +14,23 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="CoursCategorie.IdCoursCategorie" />
             <div class="form-group">
-                <label asp-for="CoursCategorie.NomCoursCategorie" class="control-label"></label>
+                <label asp-for="CoursCategorie.NomCoursCategorie" class="control-label">Nom de la catégorie</label>
                 <input asp-for="CoursCategorie.NomCoursCategorie" class="form-control" />
                 <span asp-validation-for="CoursCategorie.NomCoursCategorie" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Enregistrer" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index">Retour à la liste des catégories</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
