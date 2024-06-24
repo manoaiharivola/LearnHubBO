@@ -2,42 +2,42 @@
 @model DeleteChapitreModel
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Supprimer un chapitre";
 }
 
-<h1>Delete</h1>
+<h1>Supprimer un chapitre</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Êtes-vous sûr de vouloir supprimer ceci ?</h3>
 <div>
     <h4>Chapitre du cours @Model.Cours.TitreCours</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Chapitre.TitreChapitre)
+            Titre
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Chapitre.TitreChapitre)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Chapitre.Ordre)
+            Numero du chapitre
         </dt>
         <dd class="col-sm-10">
             Chapitre @Html.DisplayFor(model => model.Chapitre.Ordre)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Chapitre.DateCreationChapitre)
+            Date de création
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Chapitre.DateCreationChapitre)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Chapitre.DateModificationChapitre)
+            Date de modification
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Chapitre.DateModificationChapitre)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Chapitre.Contenu)
+            Contenu
         </dt>
         <p>
         <dd class="col-sm-10" style="width: 1000px; background-color: white; border-radius: 10px; border-style: solid; border-width: 2px; border-color: #eeeeee; padding: 20px; overflow-x: auto;">
@@ -45,10 +45,10 @@
         </dd>
         </p>
     </dl>
-    
+
     <form method="post">
         <input type="hidden" asp-for="Chapitre.IdChapitre" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Chapitres" asp-route-id="@Model.Cours.IdCours">Back to List Chapitres</a>
+        <input type="submit" value="Supprimer" class="btn btn-danger" /> |
+        <a asp-page="./Chapitres" asp-route-id="@Model.Cours.IdCours">Retour à la liste des chapitres</a>
     </form>
 </div>

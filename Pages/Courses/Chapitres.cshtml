@@ -5,27 +5,27 @@
     ViewData["Title"] = "Chapitres";
 }
 
-<h4>Chapitres pour le cours : @Model.Cours.TitreCours</h4>
+<h4>Chapitres du cours : @Model.Cours.TitreCours</h4>
 <h4>Formateur : @Model.Cours.Formateur.NomFormateur</h4>
 <h4>Catégorie : @Model.Cours.CoursCategorie.NomCoursCategorie</h4>
 
 <p>
-    <a asp-page="./CreateChapitre" asp-route-idCours="@Model.Cours.IdCours">Create New</a>
+    <a asp-page="./CreateChapitre" asp-route-idCours="@Model.Cours.IdCours">Créer Nouveau</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Chapitres[0].TitreChapitre)
+                Titre
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Chapitres[0].Ordre)
+                Numero
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Chapitres[0].DateCreationChapitre)
+                Date de création
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Chapitres[0].DateModificationChapitre)
+                Date de dernière modification
             </th>
             <th></th>
         </tr>
@@ -47,9 +47,9 @@
                     @Html.DisplayFor(modelItem => item.DateModificationChapitre)
                 </td>
                 <td>
-                    <a asp-page="./EditChapitre" asp-route-id="@item.IdChapitre">Edit</a> |
-                    <a asp-page="./DetailsChapitre" asp-route-id="@item.IdChapitre">Details</a> |
-                    <a asp-page="./DeleteChapitre" asp-route-id="@item.IdChapitre">Delete</a>
+                    <a asp-page="./EditChapitre" asp-route-id="@item.IdChapitre">Modifier</a> |
+                    <a asp-page="./DetailsChapitre" asp-route-id="@item.IdChapitre">Détails</a> |
+                    <a asp-page="./DeleteChapitre" asp-route-id="@item.IdChapitre">Supprimer</a>
                 </td>
             </tr>
         }

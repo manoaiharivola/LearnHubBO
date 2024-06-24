@@ -4,10 +4,10 @@
 }
 
 @{
-    ViewData["Title"] = "Create Chapitre";
+    ViewData["Title"] = "Créer Chapitre";
 }
 
-<h4>Nouveau chapitre du cours @Model.Cours.TitreCours</h4>
+<h1>Nouveau chapitre du cours @Model.Cours.TitreCours</h1>
 
 <hr />
 <div class="row">
@@ -15,17 +15,17 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Chapitre.TitreChapitre" class="control-label"></label>
+                <label asp-for="Chapitre.TitreChapitre" class="control-label">Titre</label>
                 <input asp-for="Chapitre.TitreChapitre" class="form-control" />
                 <span asp-validation-for="Chapitre.TitreChapitre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Chapitre.Ordre" class="control-label"></label>
-                <input asp-for="Chapitre.Ordre" type="number" class="form-control" min="1" placeholder="1" value="1"/>
+                <label asp-for="Chapitre.Ordre" class="control-label">Numero du chapitre</label>
+                <input asp-for="Chapitre.Ordre" type="number" class="form-control" min="1" placeholder="1" value="1" />
                 <span asp-validation-for="Chapitre.Ordre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Chapitre.Contenu" class="control-label"></label>
+                <label asp-for="Chapitre.Contenu" class="control-label">Contenu</label>
                 <textarea id="tiny" asp-for="Chapitre.Contenu" class="form-control" style="width:1000px;"></textarea>
                 <span asp-validation-for="Chapitre.Contenu" class="text-danger"></span>
             </div>
@@ -33,12 +33,12 @@
                 <input asp-for="Chapitre.IdCours" class="form-control" hidden value="@Model.Cours.IdCours" />
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Créer" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="./Chapitres" asp-route-id="@Model.Cours.IdCours">Back to List Chapitres</a>
+    <a asp-page="./Chapitres" asp-route-id="@Model.Cours.IdCours">Retour à la liste des chapitres</a>
 </div>
