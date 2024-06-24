@@ -2,59 +2,58 @@
 @model LearnHubBO.Pages.Courses.DeleteModel
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Supprimer un cours";
 }
 
-<h1>Delete</h1>
+<h1>Supprimer un cours</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Êtes-vous sûr de vouloir supprimer ceci ?</h3>
 <div>
-    <h4>Cours</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Cours.TitreCours)
+            Titre
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Cours.TitreCours)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Cours.Formateur)
+            Formateur
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Cours.Formateur.NomFormateur)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Cours.CoursCategorie)
+            Catégorie
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Cours.CoursCategorie.NomCoursCategorie)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Cours.DateCreationCours)
+            Date de création
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Cours.DateCreationCours)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Cours.DateModificationCours)
+            Date de modification
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Cours.DateModificationCours)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Cours.Description)
+            Description
         </dt>
         <p>
-            <dd class="col-sm-10" style="width: 1000px; background-color: white; border-radius: 10px; border-style: solid; border-width: 2px; border-color: #eeeeee; padding: 20px; overflow-x: auto;">
-                    @Html.Raw(Model.Cours.Description)
-            </dd>
+        <dd class="col-sm-10" style="width: 1000px; background-color: white; border-radius: 10px; border-style: solid; border-width: 2px; border-color: #eeeeee; padding: 20px; overflow-x: auto;">
+                @Html.Raw(Model.Cours.Description)
+        </dd>
         </p>
     </dl>
-    
+
     <form method="post">
         <input type="hidden" asp-for="Cours.IdCours" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-page="./Index">Back to List</a>
+        <input type="submit" value="Supprimer" class="btn btn-danger" /> |
+        <a asp-page="./Index">Retour à la liste de vos cours</a>
     </form>
 </div>

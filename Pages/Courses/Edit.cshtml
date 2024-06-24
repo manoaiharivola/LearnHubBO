@@ -2,12 +2,11 @@
 @model LearnHubBO.Pages.Courses.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Modifier un cours";
 }
 
-<h1>Edit</h1>
+<h1>Modifier un cours</h1>
 
-<h4>Cours</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -15,32 +14,34 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Cours.IdCours" />
             <div class="form-group">
-                <label asp-for="Cours.TitreCours" class="control-label"></label>
+                <label asp-for="Cours.TitreCours" class="control-label">Titre</label>
                 <input asp-for="Cours.TitreCours" class="form-control" />
                 <span asp-validation-for="Cours.TitreCours" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Cours.IdCoursCategorie" class="control-label"></label>
+                <label asp-for="Cours.IdCoursCategorie" class="control-label">Catégorie</label>
                 <select asp-for="Cours.IdCoursCategorie" class="form-control" asp-items="ViewBag.IdCoursCategorie"></select>
                 <span asp-validation-for="Cours.IdCoursCategorie" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Cours.Description" class="control-label"></label>
+                <label asp-for="Cours.Description" class="control-label">Description</label>
                 <textarea id="tiny" asp-for="Cours.Description" class="form-control" style="width:1000px;"></textarea>
                 <span asp-validation-for="Cours.Description" class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Enregistrer" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index">Retour à la liste de vos cours</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

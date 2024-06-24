@@ -2,56 +2,55 @@
 @model LearnHubBO.Pages.Courses.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Détails d'un cours";
 }
 
-<h1>Details</h1>
+<h1>Détails d'un cours</h1>
 
 <div>
-    <h4>Cours</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Cours.TitreCours)
+            Titre
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Cours.TitreCours)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Cours.Formateur)
+            Formateur
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Cours.Formateur.NomFormateur)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Cours.CoursCategorie)
+            Catégorie
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Cours.CoursCategorie.NomCoursCategorie)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Cours.DateCreationCours)
+            Date de création
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Cours.DateCreationCours)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Cours.DateModificationCours)
+            Date de modification
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Cours.DateModificationCours)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Cours.Description)
+            Description
         </dt>
         <p>
-            <dd class="col-sm-10" style="width: 1000px; background-color: white; border-radius: 10px; border-style: solid; border-width: 2px; border-color: #eeeeee; padding: 20px; overflow-x: auto;">
-                    @Html.Raw(Model.Cours.Description)
-            </dd>
+        <dd class="col-sm-10" style="width: 1000px; background-color: white; border-radius: 10px; border-style: solid; border-width: 2px; border-color: #eeeeee; padding: 20px; overflow-x: auto;">
+                @Html.Raw(Model.Cours.Description)
+        </dd>
         </p>
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Cours.IdCours">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Edit" asp-route-id="@Model.Cours.IdCours">Modifier</a> |
+    <a asp-page="./Index">Retour à la liste de vos cours</a>
 </div>
