@@ -2,60 +2,61 @@
 @model LearnHubBO.Pages.Courses.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Liste de vos cours";
 }
 
-<h1>Index</h1>
+<h1>Liste de vos cours</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Créer Nouveau</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Cours[0].TitreCours)
+                Titre
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Cours[0].Formateur)
+                Catégorie
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Cours[0].CoursCategorie)
+                Formateur
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Cours[0].DateCreationCours)
+                Date de création
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Cours[0].DateModificationCours)
+               Date de dernière modification
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Cours) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.TitreCours)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Formateur.NomFormateur)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CoursCategorie.NomCoursCategorie)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateCreationCours)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateModificationCours)
-            </td>
-            <td>
-                <a asp-page="./Chapitres" asp-route-id="@item.IdCours">Chapitres</a> |
-                <a asp-page="./Edit" asp-route-id="@item.IdCours">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.IdCours">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.IdCours">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Cours)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TitreCours)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CoursCategorie.NomCoursCategorie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Formateur.NomFormateur)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateCreationCours)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateModificationCours)
+                </td>
+                <td>
+                    <a asp-page="./Chapitres" asp-route-id="@item.IdCours">Chapitres</a> |
+                    <a asp-page="./Edit" asp-route-id="@item.IdCours">Modifier</a> |
+                    <a asp-page="./Details" asp-route-id="@item.IdCours">Détails</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.IdCours">Supprimer</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
