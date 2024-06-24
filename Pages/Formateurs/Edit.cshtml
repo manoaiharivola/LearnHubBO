@@ -2,12 +2,11 @@
 @model LearnHubBO.Pages.Formateurs.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Modifier un formateur";
 }
 
-<h1>Edit</h1>
+<h1>Modifier un formateur</h1>
 
-<h4>Formateur</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -15,29 +14,29 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="IdFormateur" />
             <div class="form-group">
-                <label asp-for="NomFormateur" class="control-label"></label>
+                <label asp-for="NomFormateur" class="control-label">Nom</label>
                 <input asp-for="NomFormateur" class="form-control" />
                 <span asp-validation-for="NomFormateur" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
+                <label asp-for="Email" class="control-label">Email</label>
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MotDePasse" class="control-label"></label>
+                <label asp-for="MotDePasse" class="control-label">Mot de passe</label>
                 <input asp-for="MotDePasse" class="form-control" placeholder="Laissez vide pour conserver l'ancien mot de passe" />
                 <span asp-validation-for="MotDePasse" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Enregistrer" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index">Retour à la liste des formateurs</a>
 </div>
 
 @section Scripts {

@@ -2,38 +2,39 @@
 @model LearnHubBO.Pages.Formateurs.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Liste des formateurs";
 }
 
-<h1>Index</h1>
+<h1>Liste des formateurs</h1>
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Formateur[0].NomFormateur)
+                Nom
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Formateur[0].Email)
+                Email
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Formateur) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomFormateur)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.IdFormateur">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.IdFormateur">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.IdFormateur">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Formateur)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomFormateur)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.IdFormateur">Modifier</a> |
+                    <a asp-page="./Details" asp-route-id="@item.IdFormateur">Détails</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.IdFormateur">Supprimer</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
